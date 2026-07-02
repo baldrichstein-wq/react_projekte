@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #2D241C 0%, #1A1510 50%, #241D17 100%);
+  --glass-bg: rgba(200, 180, 160, 0.05);
+  --glass-border: rgba(200, 180, 160, 0.15);
+  --glass-blur: blur(20px);
+  --text-primary: #F2EBE5;
+  --text-secondary: #BFA896;
+  --accent-color: #A36B36; /* Earthy Amber/Brown */
+  --accent-hover: #8A5626;
+  --danger-color: #C25C5C;
+  --danger-hover: #A34747;
+  --favorite-color: #D4AF37;
+  
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  
+  --border-radius-md: 10px;
+  --border-radius-lg: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+#root::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(13, 26, 20, 0.75), rgba(21, 36, 28, 0.85)), url('/ardennes-bg.png');
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+#root::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(45, 36, 28, 0.8), rgba(26, 21, 16, 0.9)), url('/argonne-bg.png');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  animation: bgFade 8s infinite alternate ease-in-out;
+}
+
+@keyframes bgFade {
+  0%, 35% { opacity: 0; }
+  65%, 100% { opacity: 1; }
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+input, textarea {
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.2);
+}
